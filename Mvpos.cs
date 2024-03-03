@@ -7,5 +7,6 @@ public class Mvpos
     public Mvpos(HttpClient httpClient)
     {
         _httpClient = httpClient;
+        _httpClient.BaseAddress = new Uri("");
     }
 }
