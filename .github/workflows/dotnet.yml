@@ -1,0 +1,35 @@
+name: Publish .NET Package
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+    types: [ "closed" ]
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Add NuGet Source
+      run: dotnet nuget add source --username byroncustodio --password ${{secrets.NUGETAPIKEY}} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/byroncustodio/index.json"
+    - name: Publish NuGet Package
+      shell: pwsh
+      run: |
+        $version = "-1"
+        
+        if ("${{github.ref}}" -eq "refs/heads/develop") {
+          $version = $(Get-Date -Format "yyyy.MMdd") + "-dev.${{github.run_number}}"
+        } elseif ("${{github.event.pull_request.merged}}" -ieq "true") {
+          if ("${{github.head_ref}}" -like "bugfix*") {
+            $version = -join($(Get-Date -Format "yyyy.MMdd"), ".", ${{github.run_number}})
+          } elseif ("${{github.head_ref}}" -eq "develop") {
+            $version = $(Get-Date -Format "yyyy.MMdd") + ".0"
+          }
+        }
+        
+        if ($version -ne "-1") {
+          dotnet pack -p:PackageVersion=$version --configuration Release
+          dotnet nuget push "bin/Release/*.nupkg" --source "github" --skip-duplicate --api-key "${{secrets.NUGETAPIKEY}}"
+        }
