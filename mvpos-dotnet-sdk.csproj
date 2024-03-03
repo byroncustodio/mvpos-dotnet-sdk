@@ -6,6 +6,19 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AssemblyName>MvposSDK</AssemblyName>
+        <PackageId>MVPOS.NET.SDK</PackageId>
+        <Authors>Byron Custodio</Authors>
+        <RepositoryUrl>https://github.com/byroncustodio/mvpos-dotnet-sdk</RepositoryUrl>
+        <Title>MVPOS .NET SDK</Title>
+        <Description>MVPOS SDK for .NET</Description>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
 
 </Project>
