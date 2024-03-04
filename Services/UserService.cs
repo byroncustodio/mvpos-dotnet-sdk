@@ -31,7 +31,7 @@ public class UserService
         }
     }
     
-    public async Task SetStoreLocation(StoreLocation location)
+    public async Task SetStoreLocation(Mvpos.StoreLocation location)
     {
         const string endpoint = "api/v1/users/changeactiveclientlocation";
 
@@ -55,19 +55,5 @@ public class UserService
         {
             throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync());
         }
-    }
-    
-    public enum StoreLocation
-    {
-        Gastown = 212,
-        Kitsilano = 213,
-        NorthVancouver = 214,
-        Victoria = 215,
-        Metrotown = 216,
-        Guildford = 217,
-        Tsawwassen = 252,
-        Richmond = 253,
-        ParkRoyal = 261,
-        Southgate = 262
     }
 }
