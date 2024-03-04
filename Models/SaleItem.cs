@@ -17,7 +17,7 @@ public class SaleItem
     public int LocationId { get; set; }
     
     [JsonProperty("item_id")]
-    public int ItemId { get; set; }
+    public int? ItemId { get; set; }
     
     [JsonProperty("item_number")]
     public string? Sku { get; set; }
