@@ -19,7 +19,7 @@ public class UserService
             RequestUri = new Uri(string.Join("?", endpoint, queryParams), UriKind.Relative),
             Headers =
             {
-                { HttpRequestHeader.Cookie.ToString(), _service.SessionCookie }
+                { HttpRequestHeader.Cookie.ToString(), Mvpos.SessionCookie }
             }
         };
 
@@ -41,7 +41,7 @@ public class UserService
             RequestUri = new Uri(endpoint, UriKind.Relative),
             Headers =
             {
-                { HttpRequestHeader.Cookie.ToString(), _service.SessionCookie }
+                { HttpRequestHeader.Cookie.ToString(), Mvpos.SessionCookie }
             },
             Content = new FormUrlEncodedContent(new List<KeyValuePair<string, string>>
             {

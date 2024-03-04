@@ -7,7 +7,9 @@ public class Mvpos
     public VendorService Vendors { get; }
     public SaleItemService SaleItems { get; }
     public UserService Users { get; }
-    
+
+    public static string SessionCookie { get; } = Guid.NewGuid().ToString().Replace("-", "")[..26];
+
     private readonly HttpClient _httpClient;
     
     public Mvpos(HttpClient httpClient)

@@ -21,7 +21,7 @@ public class SaleItemService
             RequestUri = new Uri(string.Join("?", endpoint, queryParams), UriKind.Relative),
             Headers =
             {
-                { HttpRequestHeader.Cookie.ToString(), _service.SessionCookie }
+                { HttpRequestHeader.Cookie.ToString(), Mvpos.SessionCookie }
             }
         };
 
