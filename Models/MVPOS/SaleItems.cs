@@ -54,6 +54,9 @@ public class SaleItem
 
     [JsonProperty("final_cost")]
     public decimal Total { get; set; }
+    
+    [JsonProperty("vendor_company")]
+    public string? VendorCompany { get; set; }
 }
 
 public class Payment
