@@ -16,10 +16,10 @@ public class UserService
         HttpRequestMessage httpRequest = new()
         {
             Method = HttpMethod.Get,
-            RequestUri = new Uri(string.Join("?", endpoint, queryParams), UriKind.Relative),
+            RequestUri = new Uri($"{endpoint}?{queryParams}", UriKind.Relative),
             Headers =
             {
-                { HttpRequestHeader.Cookie.ToString(), Mvpos.SessionCookie }
+                { HttpRequestHeader.Cookie.ToString(), _service.SessionCookie }
             }
         };
 
@@ -41,7 +41,7 @@ public class UserService
             RequestUri = new Uri(endpoint, UriKind.Relative),
             Headers =
             {
-                { HttpRequestHeader.Cookie.ToString(), Mvpos.SessionCookie }
+                { HttpRequestHeader.Cookie.ToString(), _service.SessionCookie }
             },
             Content = new FormUrlEncodedContent(new List<KeyValuePair<string, string>>
             {

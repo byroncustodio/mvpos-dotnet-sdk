@@ -13,15 +13,15 @@ public class SaleItemService
     public async Task<SaleItems> GetByDateRange(DateTime from, DateTime to)
     {
         const string endpoint = "api/v1/saleitems/date";
-        var queryParams = "start_date=" + from.ToString("MM/dd/yyyy") + "&end_date=" + to.ToString("MM/dd/yyyy");
+        var queryParams = $"start_date={from:MM/dd/yyyy}&end_date={to:MM/dd/yyyy}";
 
         HttpRequestMessage httpRequest = new()
         {
             Method = HttpMethod.Get,
-            RequestUri = new Uri(string.Join("?", endpoint, queryParams), UriKind.Relative),
+            RequestUri = new Uri($"{endpoint}?{queryParams}", UriKind.Relative),
             Headers =
             {
-                { HttpRequestHeader.Cookie.ToString(), Mvpos.SessionCookie }
+                { HttpRequestHeader.Cookie.ToString(), _service.SessionCookie }
             }
         };
 

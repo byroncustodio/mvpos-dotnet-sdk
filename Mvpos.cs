@@ -2,23 +2,18 @@
 
 namespace MvposSDK;
 
-public class Mvpos
+public abstract class Mvpos
 {
     public VendorService Vendors { get; }
     public SaleItemService SaleItems { get; }
     public UserService Users { get; }
 
-    public static string SessionCookie { get; } = Guid.NewGuid().ToString().Replace("-", "")[..26];
-
-    private readonly HttpClient _httpClient;
-    
-    public Mvpos(HttpClient httpClient)
+    protected Mvpos(HttpClient httpClient)
     {
-        _httpClient = httpClient;
-        _httpClient.BaseAddress = new Uri("https://app.mvpofsales.com/");
-
-        Vendors = new VendorService(new BaseClientService(_httpClient));
-        SaleItems = new SaleItemService(new BaseClientService(_httpClient));
-        Users = new UserService(new BaseClientService(_httpClient));
+        var service = new BaseClientService(httpClient);
+        
+        Vendors = new VendorService(service);
+        SaleItems = new SaleItemService(service);
+        Users = new UserService(service);
     }
 }
