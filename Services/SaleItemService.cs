@@ -13,7 +13,7 @@ public class SaleItemService
     public async Task<SaleItems> GetByDateRange(DateTime from, DateTime to)
     {
         const string endpoint = "api/v1/saleitems/date";
-        var queryParams = $"start_date={from:MM/dd/yyyy}&end_date={to:MM/dd/yyyy}";
+        var queryParams = $"start_date={from:d}&end_date={to:d}";
         
         HttpRequestMessage httpRequest = new()
         {
@@ -33,6 +33,7 @@ public class SaleItemService
         }
 
         var content = await httpResponse.Content.ReadAsStringAsync();
+        Console.WriteLine(content);
         return JsonConvert.DeserializeObject<SaleItems>(content) ?? throw new JsonException("Deserialized JSON resulted in null value.");
     }
 }
