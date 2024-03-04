@@ -2,18 +2,16 @@
 
 namespace MvposSDK;
 
-public class Mvpos
+public class Mvpos : BaseClientService
 {
     public VendorService Vendors { get; }
     public SaleItemService SaleItems { get; }
     public UserService Users { get; }
 
-    public Mvpos(HttpClient httpClient)
+    public Mvpos(HttpClient httpClient) : base(httpClient)
     {
-        var service = new BaseClientService(httpClient);
-        
-        Vendors = new VendorService(service);
-        SaleItems = new SaleItemService(service);
-        Users = new UserService(service);
+        Vendors = new VendorService(this);
+        SaleItems = new SaleItemService(this);
+        Users = new UserService(this);
     }
 }

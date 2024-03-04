@@ -14,7 +14,7 @@ public class SaleItemService
     {
         const string endpoint = "api/v1/saleitems/date";
         var queryParams = $"start_date={from:MM/dd/yyyy}&end_date={to:MM/dd/yyyy}";
-
+        
         HttpRequestMessage httpRequest = new()
         {
             Method = HttpMethod.Get,
