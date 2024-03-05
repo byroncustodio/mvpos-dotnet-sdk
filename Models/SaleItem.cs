@@ -3,8 +3,29 @@ using Newtonsoft.Json;
 
 namespace MvposSDK.Models;
 
-public partial class SaleItem
+public class SaleItem
 {
+    public SaleItem(int id, int saleId, int vendorId, int locationId, int? itemId, string? sku, string? name, string? description, decimal price, int quantity, decimal subTotal, decimal discount, decimal tax, decimal total, DateTime saleDate, string? vendorCompany, string? vendorCode)
+    {
+        Id = id;
+        SaleId = saleId;
+        VendorId = vendorId;
+        LocationId = locationId;
+        ItemId = itemId;
+        Sku = sku;
+        Name = name;
+        Description = description;
+        Price = price;
+        Quantity = quantity;
+        SubTotal = subTotal;
+        Discount = discount;
+        Tax = tax;
+        Total = total;
+        SaleDate = saleDate;
+        VendorCompany = vendorCompany;
+        VendorCode = vendorCode;
+    }
+
     [JsonProperty("id")]
     public int Id { get; set; }
     
