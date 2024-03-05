@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MvposSDK.Models;
 
-public class SaleItem
+public partial class SaleItem
 {
     [JsonProperty("id")]
     public int Id { get; set; }
