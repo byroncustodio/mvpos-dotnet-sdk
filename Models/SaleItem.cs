@@ -1,3 +1,4 @@
+using MvposSDK.Extensions;
 using Newtonsoft.Json;
 
 namespace MvposSDK.Models;
@@ -15,7 +16,9 @@ public class SaleItem
 
     [JsonProperty("client_location_id")]
     public int LocationId { get; set; }
-    
+
+    public string LocationName => Common.GetDescription((Mvpos.StoreLocation)LocationId);
+
     [JsonProperty("item_id")]
     public int? ItemId { get; set; }
     
