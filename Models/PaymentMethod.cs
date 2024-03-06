@@ -8,7 +8,7 @@ public class PaymentMethod
     public int? Id { get; set; }
 
     [JsonProperty("name")]
-    public string? Name { get; set; }
+    public string Name { get; set; } = "N/A";
 
     [JsonProperty("order")]
     public string? Order { get; set; }
