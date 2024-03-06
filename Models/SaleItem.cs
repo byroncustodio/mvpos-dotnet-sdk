@@ -5,25 +5,25 @@ namespace MvposSDK.Models;
 
 public class SaleItem
 {
-    public SaleItem(int id, int saleId, int vendorId, int locationId, int? itemId, string? sku, string? name, string? description, decimal price, int quantity, decimal subTotal, decimal discount, decimal tax, decimal total, DateTime saleDate, string? vendorCompany, string? vendorCode)
+    public SaleItem(SaleItem saleItem)
     {
-        Id = id;
-        SaleId = saleId;
-        VendorId = vendorId;
-        LocationId = locationId;
-        ItemId = itemId;
-        Sku = sku;
-        Name = name;
-        Description = description;
-        Price = price;
-        Quantity = quantity;
-        SubTotal = subTotal;
-        Discount = discount;
-        Tax = tax;
-        Total = total;
-        SaleDate = saleDate;
-        VendorCompany = vendorCompany;
-        VendorCode = vendorCode;
+        Id = saleItem.Id;
+        SaleId = saleItem.SaleId;
+        VendorId = saleItem.VendorId;
+        LocationId = saleItem.LocationId;
+        ItemId = saleItem.ItemId;
+        Sku = saleItem.Sku;
+        Name = saleItem.Name;
+        Description = saleItem.Description;
+        Price = saleItem.Price;
+        Quantity = saleItem.Quantity;
+        SubTotal = saleItem.SubTotal;
+        Discount = saleItem.Discount;
+        Tax = saleItem.Tax;
+        Total = saleItem.Total;
+        SaleDate = saleItem.SaleDate;
+        VendorCompany = saleItem.VendorCompany;
+        VendorCode = saleItem.VendorCode;
     }
 
     [JsonProperty("id")]
