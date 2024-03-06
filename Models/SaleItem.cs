@@ -82,6 +82,6 @@ public class SaleItem
     public string? VendorCode { get; set; }
     
     [JsonProperty("payment_method")]
-    public PaymentMethod Payment { get; set; } = new();
+    public PaymentMethod Payment { get; set; }
     
 }
