@@ -26,6 +26,7 @@ public class SaleItem
         SaleDate = saleItem.SaleDate;
         VendorCompany = saleItem.VendorCompany;
         VendorCode = saleItem.VendorCode;
+        Payment = saleItem.Payment;
     }
 
     [JsonProperty("id")]
@@ -82,6 +83,6 @@ public class SaleItem
     public string? VendorCode { get; set; }
     
     [JsonProperty("payment_method")]
-    public PaymentMethod Payment { get; set; }
+    public PaymentMethod Payment { get; set; } = new();
     
 }
