@@ -5,6 +5,8 @@ namespace MvposSDK.Models;
 
 public class SaleItem
 {
+    public SaleItem() { }
+
     public SaleItem(SaleItem saleItem)
     {
         Id = saleItem.Id;
