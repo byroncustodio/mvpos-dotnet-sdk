@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using MvposSDK.Services;
+﻿using MvposSDK.Services;
 
 namespace MvposSDK;
 
@@ -20,14 +19,14 @@ public class Mvpos : BaseClientService
     {
         Gastown = 212,
         Kitsilano = 213,
-        [Description("North Vancouver")]
+        [System.ComponentModel.Description("North Vancouver")]
         NorthVancouver = 214,
         Victoria = 215,
         Metrotown = 216,
         Guildford = 217,
         Tsawwassen = 252,
         Richmond = 253,
-        [Description("Park Royal")]
+        [System.ComponentModel.Description("Park Royal")]
         ParkRoyal = 261,
         Southgate = 262
     }

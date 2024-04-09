@@ -20,6 +20,16 @@
 
     <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="NUnit" Version="4.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Tests\UnitTest1.cs">
+        <Link>Tests\UnitTest1.cs</Link>
+      </Compile>
+      <Compile Update="Tests\GlobalUsings.cs">
+        <Link>Tests\GlobalUsings.cs</Link>
+      </Compile>
     </ItemGroup>
 
 </Project>
