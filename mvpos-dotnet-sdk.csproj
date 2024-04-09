@@ -24,8 +24,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Tests\UnitTest1.cs">
-        <Link>Tests\UnitTest1.cs</Link>
+      <Compile Update="Tests\MvposTest.cs">
+        <Link>Tests\MvposTest.cs</Link>
       </Compile>
       <Compile Update="Tests\GlobalUsings.cs">
         <Link>Tests\GlobalUsings.cs</Link>
