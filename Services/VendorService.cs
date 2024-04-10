@@ -28,7 +28,7 @@ public class VendorService
         
         if (!httpResponse.IsSuccessStatusCode)
         {
-            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync());
+            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync(), null, httpResponse.StatusCode);
         }
 
         var content = await httpResponse.Content.ReadAsStringAsync();

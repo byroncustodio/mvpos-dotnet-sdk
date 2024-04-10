@@ -21,9 +21,6 @@ public class Tests
     {
         Debug.Assert(_mvpos != null, nameof(_mvpos) + " != null");
         await _mvpos.Users.Login(Email, Password);
-        
-        var a = await _mvpos.Vendors.Get(88896747);
-        var b = 1;
     }
 
     [Test]

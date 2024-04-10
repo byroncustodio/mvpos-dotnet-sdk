@@ -27,7 +27,7 @@ public class UserService
         
         if (!httpResponse.IsSuccessStatusCode) 
         {
-            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync());
+            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync(), null, httpResponse.StatusCode);
         }
     }
     
@@ -53,7 +53,7 @@ public class UserService
         
         if (!httpResponse.IsSuccessStatusCode) 
         {
-            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync());
+            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync(), null, httpResponse.StatusCode);
         }
     }
 }

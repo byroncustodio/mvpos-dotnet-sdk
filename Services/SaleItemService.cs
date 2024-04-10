@@ -28,7 +28,7 @@ public class SaleItemService
         
         if (!httpResponse.IsSuccessStatusCode)
         {
-            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync());
+            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync(), null, httpResponse.StatusCode);
         }
 
         var content = await httpResponse.Content.ReadAsStringAsync();
@@ -54,7 +54,7 @@ public class SaleItemService
         
         if (!httpResponse.IsSuccessStatusCode)
         {
-            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync());
+            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync(), null, httpResponse.StatusCode);
         }
 
         var content = await httpResponse.Content.ReadAsStringAsync();
@@ -79,7 +79,7 @@ public class SaleItemService
         
         if (!httpResponse.IsSuccessStatusCode)
         {
-            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync());
+            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync(), null, httpResponse.StatusCode);
         }
 
         var content = await httpResponse.Content.ReadAsStringAsync();
@@ -105,7 +105,7 @@ public class SaleItemService
         
         if (!httpResponse.IsSuccessStatusCode)
         {
-            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync());
+            throw new HttpRequestException(await httpResponse.Content.ReadAsStringAsync(), null, httpResponse.StatusCode);
         }
 
         var content = await httpResponse.Content.ReadAsStringAsync();
