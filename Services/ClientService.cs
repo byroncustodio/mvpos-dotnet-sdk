@@ -10,7 +10,7 @@ public class ClientService
 
     public ClientService(BaseService service) => _service = service;
 
-    public async Task<Client> Get(int id)
+    public async Task<Clients> Get(int id)
     {
         var endpoint = $"api/v1/clients/{id}";
         
@@ -32,6 +32,6 @@ public class ClientService
         }
 
         var content = await httpResponse.Content.ReadAsStringAsync();
-        return JsonConvert.DeserializeObject<Client>(content) ?? throw new JsonException("Deserialized JSON resulted in null value.");
+        return JsonConvert.DeserializeObject<Clients>(content) ?? throw new JsonException("Deserialized JSON resulted in null value.");
     }
 }

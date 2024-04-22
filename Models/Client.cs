@@ -20,5 +20,5 @@ public class Client
     public readonly string? Name;
 
     [JsonProperty("locations")]
-    public readonly IEnumerable<Location> Locations;
+    public readonly IEnumerable<Location>? Locations;
 }
