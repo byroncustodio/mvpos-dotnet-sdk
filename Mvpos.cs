@@ -7,12 +7,14 @@ public class Mvpos : BaseService
     public VendorService Vendors { get; }
     public SaleItemService SaleItems { get; }
     public UserService Users { get; }
+    public ClientService Clients { get; }
 
     public Mvpos(HttpClient httpClient) : base(httpClient)
     {
         Vendors = new VendorService(this);
         SaleItems = new SaleItemService(this);
         Users = new UserService(this);
+        Clients = new ClientService(this);
     }
     
     public enum StoreLocation
