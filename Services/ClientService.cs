@@ -1,23 +1,23 @@
-using System.Net;
+﻿using System.Net;
 using MvposSDK.Models;
 using Newtonsoft.Json;
 
 namespace MvposSDK.Services;
 
-public class VendorService
+public class ClientService
 {
     private readonly BaseService _service;
 
-    public VendorService(BaseService service) => _service = service;
+    public ClientService(BaseService service) => _service = service;
 
-    public async Task<Vendor> Get(int id)
+    public async Task<Client> Get(int id)
     {
-        var endpoint = $"api/v1/vendors/{id.ToString()}";
+        var endpoint = $"api/v1/clients/{id}";
         
         HttpRequestMessage httpRequest = new()
         {
             Method = HttpMethod.Get,
-            RequestUri = new Uri(endpoint, UriKind.Relative),
+            RequestUri = new Uri($"{endpoint}", UriKind.Relative),
             Headers =
             {
                 { HttpRequestHeader.Cookie.ToString(), _service.SessionCookie }
@@ -32,6 +32,6 @@ public class VendorService
         }
 
         var content = await httpResponse.Content.ReadAsStringAsync();
-        return JsonConvert.DeserializeObject<Vendor>(content) ?? throw new JsonException("Deserialized JSON resulted in null value.");
+        return JsonConvert.DeserializeObject<Client>(content) ?? throw new JsonException("Deserialized JSON resulted in null value.");
     }
 }

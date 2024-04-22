@@ -1,11 +1,11 @@
 namespace MvposSDK.Services;
 
-public class BaseClientService
+public class BaseService
 {
     public HttpClient HttpClient { get; }
     public string SessionCookie { get; }
 
-    protected BaseClientService(HttpClient httpClient)
+    protected BaseService(HttpClient httpClient)
     {
         HttpClient = httpClient;
         HttpClient.BaseAddress = new Uri("https://app.mvpofsales.com/");

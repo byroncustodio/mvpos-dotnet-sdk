@@ -2,7 +2,7 @@
 
 namespace MvposSDK;
 
-public class Mvpos : BaseClientService
+public class Mvpos : BaseService
 {
     public VendorService Vendors { get; }
     public SaleItemService SaleItems { get; }

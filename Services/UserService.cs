@@ -4,9 +4,9 @@ namespace MvposSDK.Services;
 
 public class UserService
 {
-    private readonly BaseClientService _service;
+    private readonly BaseService _service;
 
-    public UserService(BaseClientService service) => _service = service;
+    public UserService(BaseService service) => _service = service;
     
     public async Task Login(string email, string password)
     {

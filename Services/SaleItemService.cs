@@ -6,9 +6,9 @@ namespace MvposSDK.Services;
 
 public class SaleItemService
 {
-    private readonly BaseClientService _service;
+    private readonly BaseService _service;
 
-    public SaleItemService(BaseClientService service) => _service = service;
+    public SaleItemService(BaseService service) => _service = service;
 
     public async Task<SaleItems> List()
     {
