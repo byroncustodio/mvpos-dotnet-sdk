@@ -14,11 +14,11 @@ public class Client
     }
 
     [JsonProperty("id")]
-    public readonly int Id;
+    public int Id;
 
     [JsonProperty("name")]
-    public readonly string? Name;
+    public string? Name;
 
     [JsonProperty("locations")]
-    public readonly IEnumerable<Location>? Locations;
+    public IEnumerable<Location>? Locations;
 }
