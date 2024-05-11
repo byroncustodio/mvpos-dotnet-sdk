@@ -30,6 +30,8 @@ public class Mvpos : BaseService
         Richmond = 253,
         [System.ComponentModel.Description("Park Royal")]
         ParkRoyal = 261,
-        Southgate = 262
+        Southgate = 262,
+        [System.ComponentModel.Description("West Edmonton")]
+        WestEdmonton = 314,
     }
 }
