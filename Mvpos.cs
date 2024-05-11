@@ -26,7 +26,7 @@ public class Mvpos : BaseService
         Victoria = 215,
         Metrotown = 216,
         Guildford = 217,
-        Tsawwassen = 252,
+        Mapleview = 252, // Previously Tsawwassen Mills
         Richmond = 253,
         [System.ComponentModel.Description("Park Royal")]
         ParkRoyal = 261,

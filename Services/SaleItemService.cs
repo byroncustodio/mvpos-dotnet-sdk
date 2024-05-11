@@ -38,7 +38,7 @@ public class SaleItemService
     public async Task<SaleItems> List(DateTime from, DateTime to)
     {
         const string endpoint = "api/v1/vendors/0/saleitems/date";
-        var queryParams = $"start_date={from:d}&end_date={to:d}";
+        var queryParams = $"start_date={from:yyyy-MM-dd}&end_date={to:yyyy-MM-dd}";
         
         HttpRequestMessage httpRequest = new()
         {
@@ -89,7 +89,7 @@ public class SaleItemService
     public async Task<SaleItems> ListAll(DateTime from, DateTime to)
     {
         const string endpoint = "api/v1/saleitems/date";
-        var queryParams = $"start_date={from:d}&end_date={to:d}";
+        var queryParams = $"start_date={from:yyyy-MM-dd}&end_date={to:yyyy-MM-dd}";
         
         HttpRequestMessage httpRequest = new()
         {
