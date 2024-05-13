@@ -15,7 +15,7 @@ public class UserService
 
         HttpRequestMessage httpRequest = new()
         {
-            Method = HttpMethod.Get,
+            Method = HttpMethod.Post,
             RequestUri = new Uri($"{endpoint}?{queryParams}", UriKind.Relative),
             Headers =
             {
