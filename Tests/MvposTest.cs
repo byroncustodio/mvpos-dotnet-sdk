@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace MvposSDK.Tests;
 
@@ -6,9 +7,9 @@ public class Tests
 {
     private Mvpos? _mvpos;
 
-    private const string Email = "mirusakii@gmail.com";
+    private const string Email = "";
 
-    private const string Password = "Sakura780";
+    private const string Password = "";
     
     [SetUp]
     public void Setup()
@@ -26,7 +27,7 @@ public class Tests
     [Test]
     public async Task TestUser_SetStoreLocation()
     {
-        var location = Mvpos.StoreLocation.Guildford;
+        var location = Mvpos.StoreLocation.Mapleview;
         
         Debug.Assert(_mvpos != null, nameof(_mvpos) + " != null");
         await TestUser_Login();
@@ -37,12 +38,24 @@ public class Tests
     [Test]
     public async Task TestSaleItem_List()
     {
-        var from = new DateTime(2024, 1, 1);
-        var to = new DateTime(2024, 1, 31);
+        var from = new DateTime(2024, 4, 1);
+        var to = new DateTime(2024, 4, 30);
         
         Debug.Assert(_mvpos != null, nameof(_mvpos) + " != null");
         await TestUser_SetStoreLocation();
 
+        var a = (await _mvpos.SaleItems.ListAll(from, to)).Items;
+        var b = a.GroupBy(x => x.VendorCompany)
+            .Select(y => new
+            {
+                Vendor = y.First().VendorCompany,
+                Sales = y.Count(),
+                Profit = y.Sum(z => z.Total)
+            })
+            .ToList();
+
+        var c = JsonConvert.SerializeObject(b);
+        
         await Assert.ThatAsync(async () => (await _mvpos.SaleItems.List(from, to)).Items.Count, Is.GreaterThan(0));
     }
 }

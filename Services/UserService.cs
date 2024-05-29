@@ -11,16 +11,20 @@ public class UserService
     public async Task Login(string email, string password)
     {
         const string endpoint = "api/v1/users/login";
-        var queryParams = $"email_address={email}&password={password}&password_reset_token=";
 
         HttpRequestMessage httpRequest = new()
         {
             Method = HttpMethod.Post,
-            RequestUri = new Uri($"{endpoint}?{queryParams}", UriKind.Relative),
+            RequestUri = new Uri($"{endpoint}", UriKind.Relative),
             Headers =
             {
                 { HttpRequestHeader.Cookie.ToString(), _service.SessionCookie }
-            }
+            },
+            Content = new FormUrlEncodedContent(new List<KeyValuePair<string, string>>
+            {
+                new("email_address", email),
+                new("password", password)
+            })
         };
 
         using var httpResponse = await _service.HttpClient.SendAsync(httpRequest);

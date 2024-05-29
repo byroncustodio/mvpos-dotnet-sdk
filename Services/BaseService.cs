@@ -9,7 +9,6 @@ public class BaseService
     {
         HttpClient = httpClient;
         HttpClient.BaseAddress = new Uri("https://app.mvpofsales.com/");
-        // SessionCookie = Guid.NewGuid().ToString().Replace("-", "")[..26];
-        SessionCookie = "PHPSESSID=n1bafi5nj9i63vl1a9nlvv3ip6";
+        SessionCookie = Guid.NewGuid().ToString().Replace("-", "")[..26];
     }
 }
