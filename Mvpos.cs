@@ -31,7 +31,17 @@ public class Mvpos : BaseService
         [System.ComponentModel.Description("Park Royal")]
         ParkRoyal = 261,
         Southgate = 262,
+        [System.ComponentModel.Description("Vaughan Mills")]
+        VaughanMills = 312,
+        [System.ComponentModel.Description("Southcentre")]
+        Southcentre = 313,
         [System.ComponentModel.Description("West Edmonton")]
         WestEdmonton = 314,
+        [System.ComponentModel.Description("The Beaches")]
+        TheBeaches = 325,
+        [System.ComponentModel.Description("Oshawa Centre")]
+        OshawaCentre = 342,
+        [System.ComponentModel.Description("CrossIron Mills")]
+        CrossIronMills = 344,
     }
 }
