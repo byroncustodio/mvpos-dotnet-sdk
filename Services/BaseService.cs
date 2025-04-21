@@ -8,7 +8,7 @@ public class BaseService
     protected BaseService(HttpClient httpClient)
     {
         HttpClient = httpClient;
-        HttpClient.BaseAddress = new Uri("https://app.mvpofsales.com/");
+        HttpClient.BaseAddress = new Uri("https://shopmakers.mvpofsales.com/");
         SessionCookie = Guid.NewGuid().ToString().Replace("-", "")[..26];
     }
 }
