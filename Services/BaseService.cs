@@ -9,6 +9,7 @@ public class BaseService
     {
         HttpClient = httpClient;
         HttpClient.BaseAddress = new Uri("https://shopmakers.mvpofsales.com/");
+        HttpClient.Timeout = TimeSpan.FromSeconds(600);
         SessionCookie = Guid.NewGuid().ToString().Replace("-", "")[..26];
     }
 }
